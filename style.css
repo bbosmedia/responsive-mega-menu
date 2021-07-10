@@ -1,0 +1,303 @@
+@import url('https://fonts.googleapis.com/css2?family=STIX+Two+Math&family=Satisfy&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 10px;
+}
+
+body{
+    font-family: 'STIX Two Math', serif;
+    overflow-x: hidden;
+}
+
+ul{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+
+
+header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.container{
+    max-width: 117rem;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 2rem;
+}
+
+.menu-icons{
+    position: absolute;
+    top: 50%;
+    right: 2rem;
+    transform: translateY(-50%);
+    color: #eee;
+    font-size: 4rem;
+    cursor: pointer;
+    z-index: 1500;
+    display: none;
+}
+
+nav{
+    width: 100%;
+    height: 8rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #eb3007;
+    height: 5rem;
+    width: 5rem;
+    border-radius: 50%;
+    color: #eee;
+    font-size: 3rem;
+    margin-right: 5rem;
+}
+
+.nav-list{
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+
+.nav-list li{
+    line-height: 8rem;
+    position: relative;
+}
+
+.sub-menu > li{
+    line-height: 4rem;
+}
+
+.nav-list a{
+    display: block;
+    color: #eee;
+    padding: 0 1.5rem;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    transition: 0.3s ease-in-out;
+}
+
+.nav-list a:hover{
+    color: #eb3007;
+}
+
+.btn{
+    padding: 1.3rem;
+    display: inline-block;
+    background-color: #eb3007;
+    border: 2px solid #eb3007;
+    border-radius: 5rem;
+    color: #eee;
+    transition: 0.3s ease;
+    text-transform: uppercase;
+    font-size: 1.4rem;
+}
+
+.btn:hover{
+    background: rgba(0,0,0,0.2);
+}
+
+.sub-menu{
+    width: 20rem;
+    display: block;
+    position: absolute;
+    border-top: 3px solid #eb3007;
+    background-color: #191919;
+    z-index: 100;
+    opacity: 0;
+    visibility: none;
+    top: 16rem;
+    transition: 0.3s ease-in-out;
+}
+
+.sub-menu::before{
+    content: '';
+    position: absolute;
+    left: 3rem;
+    top: -2.5rem;
+    border: 1.2rem solid transparent;
+    border-bottom-color: #eb3007;
+}
+
+.sub-menu .sub-menu{
+    visibility: hidden;
+    opacity: 0;
+    border-top: none;
+    border-left: 3px solid #eb3007;
+    top: 0;
+    left: 160%;
+}
+
+.sub-menu .sub-menu::before{
+    left: -2.5rem;
+    top: 0.8rem;
+    border: 1.2rem solid transparent;
+    border-right-color: #eb3007;
+}
+
+li.move-right{
+    margin-left: auto;
+    line-height: initial;
+}
+
+
+
+.nav-list li:hover > .sub-menu{
+    top: 8rem;
+    opacity: 1;
+    visibility: visible;
+}
+
+
+
+.sub-menu li:hover > .sub-menu{
+    top: 0;
+    opacity: 1;
+    left: 100%;
+    visibility: visible;
+}
+
+@media screen and (max-width: 850px) {
+    .nav-list{
+        position: fixed;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        flex-direction: column;
+        align-items: initial;
+        background-color: #191919;
+        z-index: 1000;
+        overflow-y: scroll;
+        transform: translateX(-100%);
+        transition: 0.3s ease-in-out;
+    }
+
+    .nav-list.active{
+        transform: translateX(0);
+    }
+
+    .nav-list > li{
+        line-height: 6rem;
+    }
+
+    .sub-menu{
+        position: initial;
+        border: 3px solid;
+        border-left-color: #eb3007;
+        margin-left: 1rem;
+        margin-left: 1rem;
+        max-height: 0;
+        box-shadow: none;
+    }
+
+    .sub-menu::before{
+        display: none;
+    }
+
+    .nav-list li:hover > .sub-menu{
+        opacity: 1;
+        visibility: visible;
+        max-height: initial;
+    }
+
+    li.move-right{
+        margin: 0 auto 0 0;
+        line-height: initial;
+    }
+
+    .menu-icons,
+    .menu-icons .bar,
+    .menu-icons.active .close
+    {
+        display: block;
+        transition: 0.3s ease-in-out;
+    }
+
+    .menu-icons .close,
+    .menu-icons.active .bar
+    {
+        display: none;
+        transition: 0.3s ease-in-out;
+    }
+}
+
+
+
+
+
+
+
+.hero{
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80') center no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero .text{
+    text-align: center;
+    color: #fff;
+}
+
+.text h2{
+    font-size: 50px;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.text h1{
+    font-family: 'Satisfy', cursive;
+    font-size: 80px;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.text p{
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+
+
+.text .btn:hover{
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .text h1{
+        font-size: 3.2rem;
+    }
+
+    .text h2{
+        font-size: 2.4rem;
+    }
+
+    .text p{
+        font-size: 1.4rem;
+        margin-bottom: 3rem;
+    }
+}
